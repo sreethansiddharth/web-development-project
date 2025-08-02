@@ -1,0 +1,335 @@
+/*
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+*/
+/* General Reset & Base Styling */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  min-height: 100vh;
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  min-height: 100vh;
+  color: rgb(0, 0, 0);
+}
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Root Container */
+#root {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5rem 2rem 2rem;
+  text-align: center;
+}
+
+/* Quiz Content Wrapper */
+.quiz-container {
+  background-color: #ffffff10;
+  backdrop-filter: blur(12px);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  margin-top: 2rem;
+  text-align: center;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* Buttons */
+button {
+  background-color: #4caf50;
+  color: rgb(10, 0, 0);
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  margin: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+button:disabled {
+  background-color: #888;
+  cursor: not-allowed;
+}
+
+/* Inputs & Selects */
+input, select {
+  padding: 8px 12px;
+  margin: 8px 0;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+/* Navbar */
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.navbar-right {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+
+.navbar span {
+  margin: 0 12px;
+  cursor: pointer;
+}
+
+.navbar span:hover {
+  text-decoration: underline;
+}
+
+/* Profile Dropdowns */
+.dropdown {
+  background-color: white;
+  color: black;
+  padding: 10px;
+  border-radius: 8px;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #root {
+    padding: 1rem;
+  }
+
+  .quiz-container {
+    margin-top: 1rem;
+    padding: 1.5rem;
+    padding-top: 4rem;
+  }
+
+  button {
+    width: 100%;
+    margin: 5px 0;
+  }
+}
+
+/* Subtle Text Styles */
+h2, h3, p {
+  margin: 10px 0;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  color: #f0f0f0;
+}
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color:black;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  min-width: 220px;
+  white-space: nowrap;
+}
+.page-content {
+  margin-top: 80px;
+}
+.dropdown-button {
+    color: #f0f0f0;
+  display: block;
+  width: 100%;
+  padding: 8px 10px;
+  margin-top: 5px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+}
+.dropdown-button:hover {
+  background-color: #f0f0f0;
+}
+.signin-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+.auth-input {
+  width: 250px;
+  padding: 10px;
+  margin-bottom: 1rem;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.auth-button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background-color 0.3s ease;
+}
+.profile-container {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  white-space: nowrap;
+  z-index: 1000;
+  min-width: 200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.profile-dropdown button {
+  display: block;
+  width: 100%;
+  margin-top: 5px;
+  text-align: left;
+  padding: 8px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.profile-dropdown button:hover {
+  background-color: #f0f0f0;
+}
+.subject-dropdown-container {
+  position: relative;
+}
+
+/* Ensure subject dropdown is visible and styled */
+.subject-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 8px 0;
+  z-index: 1000;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  min-width: 160px;
+}
+.correct-answer {
+  background-color: #12f41a; /* Bright green */
+  color: white;
+  font-weight: bold;
+  border: 2px solid #388E3C;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.6);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  transform: scale(1.02);
+}
+
+.incorrect-answer {
+  background-color: #df2012; /* Bright red */
+  color: white;
+  font-weight: bold;
+  border: 2px solid #C62828;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  transform: scale(1.02);
+}
